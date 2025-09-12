@@ -28,7 +28,7 @@
         android:id="@+id/inicioSesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:text="Iniciar Sesión"
         android:textColor="@color/white"
         android:textSize="40sp"
@@ -39,7 +39,7 @@
 
     <EditText
         android:id="@+id/campoUsuario"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="Correo electrónico"
         android:textSize="22sp"
@@ -48,11 +48,11 @@
         app:layout_constraintTop_toBottomOf="@id/inicioSesion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="40dp"/>
 
     <EditText
         android:id="@+id/campoContrasena"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
         android:inputType="textPassword"
@@ -66,7 +66,7 @@
 
     <Button
         android:id="@+id/btnIngresar"
-        android:layout_width="match_parent"
+        android:layout_width="129dp"
         android:layout_height="wrap_content"
         android:text="INGRESAR"
         android:textColor="@color/white"
@@ -74,31 +74,51 @@
         app:layout_constraintTop_toBottomOf="@+id/campoContrasena"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="30dp"/>
 
-    <TextView
-        android:id="@+id/powered"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Powered by: "
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:text="¿No tienes cuenta? REGISTRATE"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/background_different"
+        app:layout_constraintTop_toBottomOf="@id/btnIngresar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnIngresar"/>
+        android:layout_marginTop="50dp"/>
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="170dp"
-        android:layout_height="112dp"
-        android:src="@drawable/icon_iluma"
-        android:tint="@color/white"
+    <LinearLayout
+        android:id="@+id/poweredContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/btnIngresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/powered"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="34dp">
+
+        <TextView
+            android:id="@+id/powered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by:"
+            android:textColor="@color/background_yellow"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/icon_iluma"
+            android:tint="@color/background_yellow" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

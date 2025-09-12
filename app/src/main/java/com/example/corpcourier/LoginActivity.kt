@@ -20,6 +20,12 @@ class LoginActivity : AppCompatActivity() {
         val btnIngresar = findViewById<Button>(R.id.btnIngresar)
         val campoUsuario = findViewById<EditText>(R.id.campoUsuario)
         val campoContrasena = findViewById<EditText>(R.id.campoContrasena)
+        val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
+
+        btnRegistrarse.setOnClickListener {
+            val intent = Intent(this, registrationActivity::class.java)
+            startActivity(intent)
+        }
 
         btnIngresar.setOnClickListener {
             val usuario = campoUsuario.text.toString().trim()
@@ -41,8 +47,6 @@ class LoginActivity : AppCompatActivity() {
             }
             }
 
-
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -50,3 +54,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
+

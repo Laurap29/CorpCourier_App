@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CorpCourier">
         <activity
+            android:name=".PromedioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".registrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".secondActivity"
             android:exported="false" />
         <activity
