@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CorpCourier">
         <activity
-            android:name=".PromedioActivity"
+            android:name=".RegistrationForm"
             android:exported="false" />
         <activity
             android:name=".registrationActivity"

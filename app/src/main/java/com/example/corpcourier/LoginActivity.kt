@@ -40,12 +40,17 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this, secondActivity::class.java)
                     startActivity(intent)
 
+                    campoUsuario.text.clear()
+                    campoContrasena.text.clear()
+
                 }else{
                     Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
 
                 }
             }
             }
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
