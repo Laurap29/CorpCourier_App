@@ -21,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Título -->
         <TextView
             android:id="@+id/tvFormulario"
             android:layout_width="wrap_content"
@@ -32,7 +31,7 @@
             android:textColor="@color/white"
             android:layout_gravity="center"/>
 
-        <!-- CardView con campos -->
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardFormulario"
             android:layout_width="match_parent"
@@ -48,7 +47,6 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Nombre completo -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -65,7 +63,6 @@
                     android:hint="Escribe el nombre"
                     android:padding="8dp"/>
 
-                <!-- Teléfono -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -84,7 +81,6 @@
                     android:hint="Escribe el número"
                     android:padding="8dp"/>
 
-                <!-- Dirección -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,7 +98,6 @@
                     android:hint="Escribe la dirección"
                     android:padding="8dp"/>
 
-                <!-- Municipio -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +115,6 @@
                     android:hint="Escribe el municipio"
                     android:padding="8dp"/>
 
-                <!-- Descripción -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -165,7 +159,6 @@
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <!-- Botón pequeño de retroceso en la parte inferior izquierda -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBack"
         android:layout_width="56dp"

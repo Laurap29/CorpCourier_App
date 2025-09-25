@@ -10,23 +10,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class LoginActivity : AppCompatActivity() {
+class InicioActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
-
+        setContentView(R.layout.activity_inicio)
 
         val btnIngresar = findViewById<Button>(R.id.btnIngresar)
         val campoUsuario = findViewById<EditText>(R.id.campoUsuario)
         val campoContrasena = findViewById<EditText>(R.id.campoContrasena)
         val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
 
+        // Navegar al registro
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, registrationActivity::class.java)
             startActivity(intent)
         }
 
+        // Ingresar
         btnIngresar.setOnClickListener {
             val usuario = campoUsuario.text.toString().trim()
             val contrasena = campoContrasena.text.toString().trim()
@@ -34,22 +35,30 @@ class LoginActivity : AppCompatActivity() {
             if (usuario.isEmpty() || contrasena.isEmpty()) {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                if (usuario == "test@correo.com" && contrasena == "1234") {
-                    Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
+                val dbHelper = DBHelper(this)
 
-                    val intent = Intent(this, secondActivity::class.java)
-                    startActivity(intent)
+                // Primero, verifica si el usuario existe.
+                if (dbHelper.userExists(usuario)) {
+                    // El usuario existe, ahora valida la contraseña.
+                    if (dbHelper.validateUser(usuario, contrasena)) {
 
-                    campoUsuario.text.clear()
-                    campoContrasena.text.clear()
+                        val intent = Intent(this, SecondActivity::class.java)
+                        intent.putExtra("usuario", usuario)
+                        startActivity(intent)
 
-                }else{
-                    Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
-
+                        // Limpiar campos.
+                        campoUsuario.text.clear()
+                        campoContrasena.text.clear()
+                    } else {
+                        // Contraseña incorrecta.
+                        Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_LONG).show()
+                    }
+                } else {
+                    // El usuario no existe en la base de datos.
+                    Toast.makeText(this, "El usuario no existe. Por favor, regístrate.", Toast.LENGTH_LONG).show()
                 }
             }
-            }
-
+        }
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -59,4 +68,3 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
-

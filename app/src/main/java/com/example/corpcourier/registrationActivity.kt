@@ -2,11 +2,9 @@ package com.example.corpcourier
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -34,15 +32,21 @@ class registrationActivity : AppCompatActivity() {
             if (name.isEmpty() || email.isEmpty() || contrasena.isEmpty() || usuario.isEmpty()) {
                 Toast.makeText(this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                val intent = Intent(this, secondActivity::class.java)
-                intent.putExtra("nombre", name)
-                intent.putExtra("usuario", usuario)
-                startActivity(intent)
-                finish()
+                val dbHelper = DBHelper(this)
+                if (dbHelper.registerUser(usuario, contrasena)) {
+                    Toast.makeText(this, "Registro exitoso, inicia sesión", Toast.LENGTH_LONG).show()
+
+                    //Regresar a login
+                    val intent = Intent(this, InicioActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_LONG).show()
+                }
             }
         }
 
-        val btnBack = findViewById< ImageButton>(R.id.btnBack)
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
         btnBack.setOnClickListener {
             finish()
         }
