@@ -8,7 +8,7 @@
     android:paddingVertical="34dp"
     android:paddingHorizontal="34dp"
     android:background="@color/background_app"
-    tools:context=".LoginActivity">
+    tools:context=".InicioActivity">
 
     <TextView
         android:id="@+id/titulo"
@@ -41,7 +41,7 @@
         android:id="@+id/campoUsuario"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:hint="Correo electrónico"
+        android:hint="Usuario"
         android:textSize="22sp"
         android:textColorHint="@color/white"
         android:textColor="@color/white"
@@ -124,3 +124,5 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
